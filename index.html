@@ -243,8 +243,8 @@
             <div class="flex items-center gap-10">
                 <div class="hidden md:flex gap-10 font-sans text-xs tracking-widest uppercase">
                     <a href="#collection" data-i18n="nav-collection" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Koleksi Kami</a>
-                    <a href="#rates" data-i18n="nav-rates" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Tarif</a>
                     <a href="#spaces" data-i18n="nav-spaces" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Sudut Kebersamaan</a>
+                    <a href="#rates" data-i18n="nav-rates" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Tarif</a>
                     <a href="#journal" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Journal</a>
                     <a href="#booking" data-i18n="nav-reserve" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Reservasi</a>
                 </div>
@@ -292,9 +292,9 @@
                 <div class="w-px h-12 bg-luxury-gold mt-4 mx-auto md:ml-4"></div>
             </div>
             <div class="flex gap-8 text-white/70 font-sans text-[10px] tracking-widest uppercase">
-                <span class="hover:text-white transition-colors cursor-pointer pointer-hover">Permata Garden B5</span>
-                <span class="hover:text-white transition-colors cursor-pointer pointer-hover">Taman Harmoni C50</span>
-                <span class="hover:text-white transition-colors cursor-pointer pointer-hover">Taman Harmoni C51</span>
+                <span class="hover:text-white transition-colors cursor-pointer pointer-hover" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">Permata Garden B5</span>
+                <span class="hover:text-white transition-colors cursor-pointer pointer-hover" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">Taman Harmoni C50</span>
+                <span class="hover:text-white transition-colors cursor-pointer pointer-hover" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">Taman Harmoni C51</span>
             </div>
         </div>
     </section>
@@ -353,7 +353,7 @@
             <!-- Villa 3: Taman Harmoni C51 -->
             <div class="flex flex-col md:flex-row gap-12 md:gap-24 items-center reveal-up">
                 <div class="w-full md:w-3/5 img-reveal-container" data-cursor="view">
-                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C51" class="w-full h-[60vh] object-cover img-reveal pointer-hover" onclick="openModal('c51')">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C51" class="w-full h-full object-cover img-reveal pointer-hover" onclick="openModal('c51')">
                 </div>
                 <div class="w-full md:w-2/5 pr-0 md:pr-12">
                     <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4">Residence 03</p>
@@ -373,146 +373,6 @@
 
         </div>
     </section>
-
-    <!-- SECTION 2.5: THE RATES & PACKAGES (CAROUSEL LOOPING) -->
-    <section id="rates" class="py-24 bg-[#F5F5F5] overflow-hidden relative">
-        <div class="text-center mb-16 reveal-up px-6">
-            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Tarif & Paket Eksklusif</p>
-            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4 tracking-wide" data-i18n="rates-title">Pilihan Villa Keluarga Terbaik</h2>
-            <div class="w-12 h-px bg-luxury-gold mx-auto mb-6"></div>
-            <p class="font-sans text-sm text-luxury-stone font-light cursor-pointer hover:text-luxury-gold transition-colors" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})" data-i18n="see-all">Lihat semua villa kami</p>
-        </div>
-
-        <div class="relative max-w-[1600px] mx-auto px-0 md:px-12 group reveal-up">
-            
-            <!-- Navigation Arrows (Desktop) -->
-            <button onclick="scrollCarousel(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button onclick="scrollCarousel(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <!-- Carousel Container (Horizontal Looping Style Layout) -->
-            <div id="villa-carousel" class="flex overflow-x-auto gap-6 px-6 md:px-4 snap-x snap-mandatory hide-scrollbar pb-12 pt-4 scroll-smooth">
-                
-                <!-- Card 1: Permata Garden B5 -->
-                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
-                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('b5')" data-cursor="view">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Permata Garden B5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
-                    </div>
-                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                        <div>
-                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Permata Garden B5</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
-                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-4">4 Kamar Tidur</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-10">10 Dewasa</span></span>
-                            </div>
-                        </div>
-                        <button onclick="openModal('b5')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
-                    </div>
-                </div>
-
-                <!-- Card 2: Taman Harmoni C50 -->
-                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
-                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c50')" data-cursor="view">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C50" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
-                    </div>
-                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                        <div>
-                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C50</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
-                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
-                            </div>
-                        </div>
-                        <button onclick="openModal('c50')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
-                    </div>
-                </div>
-
-                <!-- Card 3: Taman Harmoni C51 -->
-                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
-                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c51')" data-cursor="view">
-                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C51" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
-                    </div>
-                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                        <div>
-                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C51</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
-                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
-                            </div>
-                        </div>
-                        <button onclick="openModal('c51')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- LUXURY QUICK VIEW MODAL -->
-    <div id="villa-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm closed flex items-center justify-center p-4 md:p-10">
-        <div class="bg-luxury-white w-full max-w-6xl h-full max-h-[90vh] flex flex-col relative shadow-2xl overflow-hidden rounded-sm">
-            
-            <!-- Close Button (Floating) -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-white rounded-full border border-luxury-gray flex items-center justify-center text-luxury-dark hover:bg-luxury-dark hover:text-white transition-colors pointer-hover shadow-sm">
-                <i class="fas fa-times"></i>
-            </button>
-
-            <!-- Modal Body -->
-            <div class="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
-                
-                <!-- Left: 3 Photo Grid -->
-                <div class="w-full md:w-1/2 lg:w-3/5 p-4 md:p-8 bg-[#F8F7F5] shrink-0">
-                    <div class="grid grid-cols-2 gap-3 h-[400px] md:h-full">
-                        <div class="col-span-2 row-span-2 overflow-hidden rounded-sm shadow-sm relative group">
-                            <img id="qv-img-1" src="" alt="Main Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
-                            <img id="qv-img-2" src="" alt="Secondary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
-                            <img id="qv-img-3" src="" alt="Tertiary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Content -->
-                <div class="w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 overflow-y-auto bg-luxury-white flex flex-col">
-                    
-                    <div class="flex-1">
-                        <h4 id="modal-title" class="font-serif text-3xl md:text-4xl text-luxury-dark mb-4">Villa Name</h4>
-                        <p id="modal-location" class="font-sans text-xs text-luxury-stone flex items-center gap-2 mb-6"><i class="fas fa-map-marker-alt text-luxury-gold"></i> Location</p>
-                        
-                        <p id="modal-desc" class="font-sans text-sm text-luxury-dark/70 font-light leading-relaxed mb-8"></p>
-                        
-                        <div class="mb-8">
-                            <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Fasilitas Utama</p>
-                            <ul id="modal-amenities" class="font-sans text-sm text-luxury-dark/70 space-y-3 font-light">
-                                <!-- Injected via JS -->
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Pricing & Action -->
-                    <div class="mt-8 pt-6 border-t border-luxury-gray shrink-0">
-                        <p class="font-sans text-xs text-luxury-stone mb-1 uppercase tracking-widest" data-i18n="qv-start">Harga Mulai Dari</p>
-                        <div class="flex items-baseline gap-2 mb-6">
-                            <h4 id="modal-price" class="font-serif text-3xl text-luxury-dark">Rp 0</h4>
-                            <span class="font-sans text-xs text-luxury-stone font-light">/ malam</span>
-                        </div>
-                        
-                        <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover rounded-sm shadow-lg" data-i18n="qv-book">Pesan Villa Ini Sekarang</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- SECTION 3: THE SPACES (EDITORIAL GRID) -->
     <section id="spaces" class="py-24 bg-luxury-gray">
@@ -621,7 +481,148 @@
         </div>
     </section>
 
-    <!-- SECTION 5: BOOK YOUR STAY -->
+    <!-- SECTION 5 (DIPINDAHKAN): THE RATES & PACKAGES (CAROUSEL LOOPING) -->
+    <section id="rates" class="py-24 bg-[#F5F5F5] overflow-hidden relative">
+        <div class="text-center mb-16 reveal-up px-6">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Tarif & Paket Eksklusif</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4 tracking-wide" data-i18n="rates-title">Pilihan Villa Keluarga Terbaik</h2>
+            <div class="w-12 h-px bg-luxury-gold mx-auto mb-6"></div>
+            <p class="font-sans text-sm text-luxury-stone font-light cursor-pointer hover:text-luxury-gold transition-colors" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})" data-i18n="see-all">Lihat semua villa kami</p>
+        </div>
+
+        <div class="relative max-w-[1600px] mx-auto px-0 md:px-12 group reveal-up">
+            
+            <!-- Navigation Arrows (Desktop) -->
+            <button onclick="scrollCarousel(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="scrollCarousel(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Container -->
+            <!-- Referencing design structure like image_7f9f4f.jpg with horizontal snap-scroll -->
+            <div id="villa-carousel" class="flex overflow-x-auto gap-6 px-6 md:px-4 snap-x snap-mandatory hide-scrollbar pb-12 pt-4 scroll-smooth">
+                
+                <!-- Card 1: Permata Garden B5 -->
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('b5')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Permata Garden B5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Permata Garden B5</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-4">4 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-10">10 Dewasa</span></span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('b5')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Taman Harmoni C50 -->
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c50')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C50" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C50</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('c50')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Taman Harmoni C51 -->
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c51')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C51" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C51</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('c51')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LUXURY QUICK VIEW MODAL (WITH 3 PHOTO GRID) -->
+    <div id="villa-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm closed flex items-center justify-center p-4 md:p-10">
+        <div class="bg-luxury-white w-full max-w-6xl h-full max-h-[90vh] flex flex-col relative shadow-2xl overflow-hidden rounded-sm">
+            
+            <!-- Close Button (Floating) -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-white rounded-full border border-luxury-gray flex items-center justify-center text-luxury-dark hover:bg-luxury-dark hover:text-white transition-colors pointer-hover shadow-sm">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Modal Body -->
+            <div class="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
+                
+                <!-- Left: 3 Photo Grid (Reference to image_7f9f4f.jpg and design expectations) -->
+                <div class="w-full md:w-1/2 lg:w-3/5 p-4 md:p-8 bg-[#F8F7F5] shrink-0">
+                    <div class="grid grid-cols-2 gap-3 h-[400px] md:h-full">
+                        <div class="col-span-2 row-span-2 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-1" src="" alt="Main Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-2" src="" alt="Secondary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-3" src="" alt="Tertiary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 overflow-y-auto bg-luxury-white flex flex-col">
+                    
+                    <div class="flex-1">
+                        <h4 id="modal-title" class="font-serif text-3xl md:text-4xl text-luxury-dark mb-4">Villa Name</h4>
+                        <p id="modal-location" class="font-sans text-xs text-luxury-stone flex items-center gap-2 mb-6"><i class="fas fa-map-marker-alt text-luxury-gold"></i> Location</p>
+                        
+                        <p id="modal-desc" class="font-sans text-sm text-luxury-dark/70 font-light leading-relaxed mb-8"></p>
+                        
+                        <div class="mb-8">
+                            <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Fasilitas Utama</p>
+                            <ul id="modal-amenities" class="font-sans text-sm text-luxury-dark/70 space-y-3 font-light">
+                                <!-- Injected via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pricing & Action -->
+                    <div class="mt-8 pt-6 border-t border-luxury-gray shrink-0">
+                        <p class="font-sans text-xs text-luxury-stone mb-1 uppercase tracking-widest" data-i18n="qv-start">Harga Mulai Dari</p>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <h4 id="modal-price" class="font-serif text-3xl text-luxury-dark">Rp 0</h4>
+                            <span class="font-sans text-xs text-luxury-stone font-light">/ malam</span>
+                        </div>
+                        
+                        <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover rounded-sm shadow-lg" data-i18n="qv-book">Pesan Villa Ini Sekarang</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: BOOK YOUR STAY -->
     <section id="booking" class="py-24 relative overflow-hidden bg-luxury-gray">
         <div class="absolute -top-40 -right-40 w-96 h-96 bg-luxury-gold opacity-10 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-luxury-dark opacity-5 rounded-full blur-3xl"></div>
@@ -720,7 +721,7 @@
         </div>
     </section>
 
-    <!-- SECTION 6: LOCATION -->
+    <!-- SECTION 7: LOCATION -->
     <section class="py-24 bg-luxury-white">
         <div class="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row gap-16 items-center">
             <div class="w-full md:w-1/2 reveal-up">
@@ -742,7 +743,7 @@
         </div>
     </section>
 
-    <!-- SECTION 7: INSIDE BATU (JOURNAL) -->
+    <!-- SECTION 8: INSIDE BATU (JOURNAL) -->
     <section id="journal" class="py-24 bg-luxury-gray">
         <div class="max-w-7xl mx-auto px-6 md:px-16">
             <div class="text-center mb-16 reveal-up">
@@ -785,7 +786,7 @@
         </div>
     </section>
 
-    <!-- SECTION 8: FINAL CTA -->
+    <!-- SECTION 9: FINAL CTA -->
     <section class="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover filter brightness-75 sepia-[.2]" alt="Villa Golden Hour">
@@ -850,7 +851,7 @@
                 'nav-reserve': 'Reservasi',
                 'hero-tag': 'Momen Liburan yang Terkurasi',
                 'hero-title': 'Kehangatan Liburan Keluarga\ndi Sejuknya Kota Batu',
-                'hero-sub': 'Tiga pilihan villa keluarga yang nyaman dan ramah anak, dirancang khusus untuk merajut kembali kebersamaan, tawa, dan kenangan indah bersama orang-orang cinta.',
+                'hero-sub': 'Tiga pilihan villa keluarga yang nyaman dan ramah anak, dirancang khusus untuk merajut kembali kebersamaan, tawa, dan kenangan indah bersama orang-orang tercinta.',
                 'hero-explore': 'Jelajahi Koleksi',
                 'hero-book': 'Pesan Sekarang',
                 'hero-scroll': 'Gulir untuk eksplorasi',
