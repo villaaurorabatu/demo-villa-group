@@ -115,6 +115,15 @@
             background: #C1A68D;
         }
 
+        /* Hide scrollbar for carousel specifically */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
         /* Hero Slideshow Transitions */
         .hero-slide {
             opacity: 0;
@@ -365,142 +374,142 @@
             </div>
 
         </div>
-    </section>
+    <!-- SECTION 2.5: THE PRICELIST (CAROUSEL) -->
+    <section id="rates" class="py-24 bg-[#F5F5F5] overflow-hidden relative">
+        <div class="text-center mb-16 reveal-up px-6">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Rates & Packages</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4 tracking-wide" data-i18n="rates-title">Hand-Picked Residences</h2>
+            <div class="w-12 h-px bg-luxury-gold mx-auto mb-6"></div>
+            <p class="font-sans text-sm text-luxury-stone font-light cursor-pointer hover:text-luxury-gold transition-colors" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})" data-i18n="see-all">See all our villas</p>
+        </div>
 
-    <!-- SECTION 2.5: THE PRICELIST -->
-    <section id="rates" class="py-24 bg-luxury-gray/40">
-        <div class="max-w-7xl mx-auto px-6 md:px-16">
-            <div class="text-center mb-16 reveal-up">
-                <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Rates & Packages</p>
-                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="rates-title">Invesment of Peace</h2>
-                <div class="w-12 h-px bg-luxury-gold mx-auto"></div>
-            </div>
+        <div class="relative max-w-[1600px] mx-auto px-0 md:px-12 group reveal-up">
+            
+            <!-- Navigation Arrows (Desktop) -->
+            <button onclick="scrollCarousel(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="scrollCarousel(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/80 backdrop-blur rounded-full items-center justify-center text-luxury-dark shadow-lg hover:bg-luxury-gold hover:text-white transition-all opacity-0 group-hover:opacity-100 pointer-hover">
+                <i class="fas fa-chevron-right"></i>
+            </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-up">
+            <!-- Carousel Container -->
+            <div id="villa-carousel" class="flex overflow-x-auto gap-6 px-6 md:px-4 snap-x snap-mandatory hide-scrollbar pb-12 pt-4 scroll-smooth">
+                
                 <!-- Card 1: Permata Garden B5 -->
-                <div class="bg-luxury-white border border-luxury-stone/20 p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-500 relative">
-                    <div>
-                        <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-2">Residence 01</p>
-                        <h4 class="font-serif text-2xl text-luxury-dark mb-6">Permata Garden B5</h4>
-                        
-                        <div class="border-b border-luxury-gray pb-4 mb-6">
-                            <div class="flex justify-between items-baseline mb-2">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekday">Weekday</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.500.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
-                            </div>
-                            <div class="flex justify-between items-baseline">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekend">Weekend</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.800.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('b5')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Permata Garden B5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Permata Garden B5</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-4">4 Bedrooms</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-10">10 Adults</span></span>
                             </div>
                         </div>
-
-                        <ul class="font-sans text-xs text-luxury-stone space-y-3 mb-12">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-1">Max 10 Guests (Exclusive Use)</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-2">Fully-Equipped Kitchen Set</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-3">High-speed Unlimited Wi-Fi</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-4">Hot Shower & High Amenities</span></li>
-                        </ul>
+                        <button onclick="openModal('b5')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
                     </div>
-                    <button onclick="quickSelectVilla('Permata Garden B5')" class="w-full py-3 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover" data-i18n="rates-btn">Select & Book</button>
                 </div>
 
                 <!-- Card 2: Taman Harmoni C50 -->
-                <div class="bg-luxury-white border border-luxury-stone/20 p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-500 relative">
-                    <div>
-                        <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-2">Residence 02</p>
-                        <h4 class="font-serif text-2xl text-luxury-dark mb-6">Taman Harmoni C50</h4>
-                        
-                        <div class="border-b border-luxury-gray pb-4 mb-6">
-                            <div class="flex justify-between items-baseline mb-2">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekday">Weekday</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.200.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
-                            </div>
-                            <div class="flex justify-between items-baseline">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekend">Weekend</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.500.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c50')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C50" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C50</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Bedrooms</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Adults</span></span>
                             </div>
                         </div>
-
-                        <ul class="font-sans text-xs text-luxury-stone space-y-3 mb-12">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-5">Max 8 Guests (Exclusive Use)</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-6">Private Rooftop Seating Area</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-3">High-speed Unlimited Wi-Fi</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-7">Premium BBQ Grill Set</span></li>
-                        </ul>
+                        <button onclick="openModal('c50')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
                     </div>
-                    <button onclick="quickSelectVilla('Taman Harmoni C50')" class="w-full py-3 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover" data-i18n="rates-btn">Select & Book</button>
                 </div>
 
                 <!-- Card 3: Taman Harmoni C51 -->
-                <div class="bg-luxury-white border border-luxury-stone/20 p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-500 relative">
-                    <div>
-                        <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-2">Residence 03</p>
-                        <h4 class="font-serif text-2xl text-luxury-dark mb-6">Taman Harmoni C51</h4>
-                        
-                        <div class="border-b border-luxury-gray pb-4 mb-6">
-                            <div class="flex justify-between items-baseline mb-2">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekday">Weekday</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.200.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
-                            </div>
-                            <div class="flex justify-between items-baseline">
-                                <span class="font-sans text-xs text-luxury-stone uppercase tracking-wider" data-i18n="rates-weekend">Weekend</span>
-                                <span class="font-serif text-xl text-luxury-dark">Rp 1.500.000<span class="text-xs font-sans text-luxury-stone font-light">/net</span></span>
+                <div class="w-[85vw] md:w-[500px] lg:w-[600px] shrink-0 snap-center bg-luxury-white shadow-sm hover:shadow-xl transition-all duration-500 border border-luxury-gray">
+                    <div class="h-[250px] md:h-[350px] overflow-hidden relative cursor-pointer" onclick="openModal('c51')" data-cursor="view">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Taman Harmoni C51" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C51</h3>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Bedrooms</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Adults</span></span>
                             </div>
                         </div>
-
-                        <ul class="font-sans text-xs text-luxury-stone space-y-3 mb-12">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-5">Max 8 Guests (Exclusive Use)</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-8">Spacious Living Lounge</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-3">High-speed Unlimited Wi-Fi</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold text-[10px]"></i> <span data-i18n="rate-inc-9">Smart TV Entertainment Suite</span></li>
-                        </ul>
+                        <button onclick="openModal('c51')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
                     </div>
-                    <button onclick="quickSelectVilla('Taman Harmoni C51')" class="w-full py-3 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover" data-i18n="rates-btn">Select & Book</button>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- LUXURY MODAL -->
-    <div id="villa-modal" class="fixed inset-0 z-[100] bg-luxury-white closed flex flex-col h-screen overflow-y-auto md:overflow-hidden">
-        <!-- Modal Header -->
-        <div class="flex justify-between items-center p-6 md:px-12 md:py-8 border-b border-luxury-gray shrink-0 bg-luxury-white sticky top-0 z-10">
-            <h4 id="modal-title" class="font-serif text-2xl text-luxury-dark">Villa Name</h4>
-            <button onclick="closeModal()" class="w-10 h-10 rounded-full border border-luxury-dark flex items-center justify-center hover:bg-luxury-dark hover:text-white transition-colors pointer-hover">
+    <!-- LUXURY QUICK VIEW MODAL -->
+    <div id="villa-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm closed flex items-center justify-center p-4 md:p-10">
+        <div class="bg-luxury-white w-full max-w-6xl h-full max-h-[90vh] flex flex-col relative shadow-2xl overflow-hidden rounded-sm">
+            
+            <!-- Close Button (Floating) -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-white rounded-full border border-luxury-gray flex items-center justify-center text-luxury-dark hover:bg-luxury-dark hover:text-white transition-colors pointer-hover shadow-sm">
                 <i class="fas fa-times"></i>
             </button>
-        </div>
 
-        <!-- Modal Body -->
-        <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
-            <!-- Left: Gallery -->
-            <div class="w-full md:w-2/3 h-[50vh] md:h-full bg-black relative flex flex-col">
-                <img id="modal-main-img" src="" alt="Main Image" class="w-full h-full object-cover">
-                <!-- Thumbnails -->
-                <div class="absolute bottom-6 left-0 right-0 px-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide justify-center" id="modal-thumbnails">
-                    <!-- Injected via JS -->
-                </div>
-            </div>
-
-            <!-- Right: Content -->
-            <div class="w-full md:w-1/3 p-8 md:p-12 md:overflow-y-auto bg-luxury-white">
-                <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-2" data-i18n="m-details">Details</p>
-                <h5 class="font-serif text-2xl mb-6" data-i18n="m-about">About the Space</h5>
-                <p id="modal-desc" class="font-sans text-sm text-luxury-stone font-light leading-relaxed mb-8"></p>
+            <!-- Modal Body -->
+            <div class="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
                 
-                <div class="mb-8">
-                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Amenities</p>
-                    <ul id="modal-amenities" class="font-sans text-sm text-luxury-stone space-y-2">
-                        <!-- Injected via JS -->
-                    </ul>
+                <!-- Left: 3 Photo Grid -->
+                <div class="w-full md:w-1/2 lg:w-3/5 p-4 md:p-8 bg-[#F8F7F5] shrink-0">
+                    <div class="grid grid-cols-2 gap-3 h-[400px] md:h-full">
+                        <div class="col-span-2 row-span-2 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-1" src="" alt="Main Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-2" src="" alt="Secondary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="col-span-1 row-span-1 overflow-hidden rounded-sm shadow-sm relative group">
+                            <img id="qv-img-3" src="" alt="Tertiary Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-12">
-                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-location">Location Highlight</p>
-                    <p id="modal-location" class="font-sans text-sm text-luxury-stone"></p>
-                </div>
+                <!-- Right: Content -->
+                <div class="w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 overflow-y-auto bg-luxury-white flex flex-col">
+                    
+                    <div class="flex-1">
+                        <h4 id="modal-title" class="font-serif text-3xl md:text-4xl text-luxury-dark mb-4">Villa Name</h4>
+                        <p id="modal-location" class="font-sans text-xs text-luxury-stone flex items-center gap-2 mb-6"><i class="fas fa-map-marker-alt text-luxury-gold"></i> Location</p>
+                        
+                        <p id="modal-desc" class="font-sans text-sm text-luxury-dark/70 font-light leading-relaxed mb-8"></p>
+                        
+                        <div class="mb-8">
+                            <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Facilities & Advantages</p>
+                            <ul id="modal-amenities" class="font-sans text-sm text-luxury-dark/70 space-y-3 font-light">
+                                <!-- Injected via JS -->
+                            </ul>
+                        </div>
+                    </div>
 
-                <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover" data-i18n="m-reserve">Reserve This Residence</button>
+                    <!-- Pricing & Action -->
+                    <div class="mt-8 pt-6 border-t border-luxury-gray shrink-0">
+                        <p class="font-sans text-xs text-luxury-stone mb-1 uppercase tracking-widest" data-i18n="qv-start">Starting From</p>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <h4 id="modal-price" class="font-serif text-3xl text-luxury-dark">Rp 0</h4>
+                            <span class="font-sans text-xs text-luxury-stone font-light">/ night</span>
+                        </div>
+                        
+                        <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover rounded-sm shadow-lg" data-i18n="qv-book">Book This Villa Now</button>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -863,15 +872,15 @@
                 'v-living': 'Ruang Keluarga Lapang',
                 'v-smart': 'Sistem Hiburan Pintar',
                 'v-view': 'Lihat Hunian Detail',
+                'see-all': 'Lihat semua villa kami',
+                'adults-10': '10 Dewasa',
+                'adults-8': '8 Dewasa',
+                'loc-batu': 'Kota Batu, Jawa Timur',
+                'qv-btn': 'Lihat Cepat',
+                'qv-start': 'Harga Mulai Dari',
+                'qv-book': 'Pesan Villa Ini Sekarang',
                 'rates-tag': 'Tarif & Paket Eksklusif',
-                'rates-title': 'Investasi Kedamaian Anda',
-                'rates-weekday': 'Hari Kerja',
-                'rates-weekend': 'Akhir Pekan',
-                'rates-btn': 'Pilih & Mulai Pesan',
-                'rate-inc-1': 'Maksimal 10 Tamu (Sewa Eksklusif)',
-                'rate-inc-2': 'Set Peralatan Dapur Mewah & Lengkap',
-                'rate-inc-3': 'Koneksi Wi-Fi Unlimited Kecepatan Tinggi',
-                'rate-inc-4': 'Kamar Mandi Air Hangat & Amenities Premium',
+                'rates-title': 'Koleksi Pilihan Kami',
                 'rate-inc-5': 'Maksimal 8 Tamu (Sewa Eksklusif)',
                 'rate-inc-6': 'Area Balkon Rooftop dengan Pemandangan Alam',
                 'rate-inc-7': 'Peralatan Panggang BBQ Premium Komplit',
@@ -964,15 +973,15 @@
                 'v-living': 'Spacious Living Area',
                 'v-smart': 'Smart Entertainment System',
                 'v-view': 'View Residence Detail',
+                'see-all': 'See all our villas',
+                'adults-10': '10 Adults',
+                'adults-8': '8 Adults',
+                'loc-batu': 'Batu City, East Java',
+                'qv-btn': 'Quick View',
+                'qv-start': 'Starting From',
+                'qv-book': 'Book This Villa Now',
                 'rates-tag': 'Premium Rates & Inclusions',
-                'rates-title': 'Your Peace Invesment',
-                'rates-weekday': 'Weekday Rate',
-                'rates-weekend': 'Weekend Rate',
-                'rates-btn': 'Select & Secure Dates',
-                'rate-inc-1': 'Max 10 Guests (Exclusive Whole Villa)',
-                'rate-inc-2': 'Premium & Fully Equipped Kitchen Set',
-                'rate-inc-3': 'High-speed Unlimited Wi-Fi Connection',
-                'rate-inc-4': 'Hot Shower & Luxury Guest Amenities',
+                'rates-title': 'Hand-Picked Residences',
                 'rate-inc-5': 'Max 8 Guests (Exclusive Whole Villa)',
                 'rate-inc-6': 'Scenic Private Rooftop Lounge Area',
                 'rate-inc-7': 'Complete Premium BBQ Grill Setup',
@@ -1149,6 +1158,14 @@
             'Taman Harmoni C51': { weekday: 1200000, weekend: 1500000 }
         };
 
+        // --- Carousel Logic ---
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('villa-carousel');
+            // Scroll by roughly one card width
+            const scrollAmount = window.innerWidth < 768 ? window.innerWidth * 0.85 : 500; 
+            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
         // --- Data for Villas (Modal) ---
         const villaData = {
             'b5': {
@@ -1193,6 +1210,11 @@
         const modal = document.getElementById('villa-modal');
         let currentVillaSelect = '';
 
+        // Currency Formatting Utility
+        function formatIDR(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
         function openModal(villaId) {
             const data = villaData[villaId];
             currentVillaSelect = data.name;
@@ -1200,30 +1222,26 @@
             // Populate Text
             document.getElementById('modal-title').innerText = data.name;
             document.getElementById('modal-desc').innerText = data.desc;
-            document.getElementById('modal-location').innerText = data.location;
+            
+            // Set Location text based on language
+            const locText = currentLang === 'id' ? 'Kota Batu, Jawa Timur' : 'Batu City, East Java';
+            document.getElementById('modal-location').innerHTML = `<i class="fas fa-map-marker-alt text-luxury-gold"></i> ${locText}`;
             
             // Populate Amenities
             const amList = document.getElementById('modal-amenities');
             amList.innerHTML = '';
             data.amenities.forEach(item => {
-                amList.innerHTML += `<li class="flex items-center gap-2"><div class="w-1 h-1 bg-luxury-gold rounded-full"></div> ${item}</li>`;
+                amList.innerHTML += `<li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-[10px] text-luxury-gold"></i> <span>${item}</span></li>`;
             });
 
-            // Populate Images
-            const mainImg = document.getElementById('modal-main-img');
-            const thumbnailsContainer = document.getElementById('modal-thumbnails');
-            
-            mainImg.src = data.images[0];
-            thumbnailsContainer.innerHTML = '';
-            
-            data.images.forEach((imgSrc, index) => {
-                const opacity = index === 0 ? 'opacity-100 border-luxury-gold' : 'opacity-60 border-transparent';
-                thumbnailsContainer.innerHTML += `
-                    <img src="${imgSrc}" 
-                         class="w-20 h-16 md:w-24 md:h-20 object-cover cursor-pointer border-2 ${opacity} hover:opacity-100 transition-all pointer-hover thumbnail-img" 
-                         onclick="changeModalImage(this, '${imgSrc}')">
-                `;
-            });
+            // Populate 3 Photo Grid
+            document.getElementById('qv-img-1').src = data.images[0] || '';
+            document.getElementById('qv-img-2').src = data.images[1] || '';
+            document.getElementById('qv-img-3').src = data.images[2] || '';
+
+            // Set Pricing (Starting from weekday price)
+            const price = pricingDb[data.name].weekday;
+            document.getElementById('modal-price').innerText = formatIDR(price);
 
             // Show Modal
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
@@ -1253,16 +1271,14 @@
             const select = document.getElementById('villa-select');
             select.value = currentVillaSelect;
             calculateNights(); // recalculate price estimator on selection
-            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+            
+            // Delay scrolling slightly to ensure modal closing animation completes smoothly
+            setTimeout(() => {
+                document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+            }, 300);
         }
 
-        // --- Quick Select from Rates Grid ---
-        function quickSelectVilla(villaName) {
-            const select = document.getElementById('villa-select');
-            select.value = villaName;
-            calculateNights(); // recalculate price estimator on selection
-            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
-        }
+        // --- Quick Select from Rates Grid (Removed, logic handled by prefillBookingFromModal now) ---
 
         // --- Booking & Pricing Estimator Logic ---
         const checkInInput = document.getElementById('check-in');
@@ -1302,10 +1318,7 @@
 
         checkOutInput.addEventListener('change', calculateNights);
 
-        // Currency Formatting Utility
-        function formatIDR(amount) {
-            return 'Rp ' + amount.toLocaleString('id-ID');
-        }
+        // Currency Formatting Utility (Already defined above)
 
         function calculateNights() {
             const villaName = villaSelect.value;
