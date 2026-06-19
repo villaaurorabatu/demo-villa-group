@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villa Syariah Group | The Curated Stay in Batu</title>
+    <title>Villa Syariah Group | Kehangatan Keluarga di Batu</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,500;0,600;1,400&family=Montserrat:wght=300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -40,16 +40,13 @@
 
     <!-- Custom CSS -->
     <style>
-        /* Base & Reset */
         body {
             background-color: #FAFAFA;
             color: #222222;
             overflow-x: hidden;
-            /* Hide default cursor on desktop */
             @media (pointer: fine) { cursor: none; }
         }
 
-        /* Custom Luxury Cursor */
         @media (pointer: fine) {
             .custom-cursor {
                 position: fixed;
@@ -101,7 +98,6 @@
             }
         }
 
-        /* Hide Scrollbar but keep functionality */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -115,7 +111,6 @@
             background: #C1A68D;
         }
 
-        /* Hide scrollbar for carousel specifically */
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -124,7 +119,6 @@
             display: none;
         }
 
-        /* Hero Slideshow Transitions */
         .hero-slide {
             opacity: 0;
             transition: opacity 2s ease-in-out, transform 8s linear;
@@ -135,7 +129,6 @@
             transform: scale(1.05);
         }
 
-        /* Scroll Reveal Animations */
         .reveal-up {
             opacity: 0;
             transform: translateY(40px);
@@ -146,7 +139,6 @@
             transform: translateY(0);
         }
 
-        /* Image Parallax/Masking Container */
         .img-reveal-container {
             overflow: hidden;
             position: relative;
@@ -160,7 +152,6 @@
             transform: scale(1.02);
         }
 
-        /* Asymmetric Grid for The Spaces */
         .spaces-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -193,7 +184,6 @@
             .space-item:nth-child(6) { grid-column: 2 / 4; grid-row: 3 / 4; }
         }
 
-        /* Infinite Horizontal Marquee */
         .marquee-wrapper {
             display: flex;
             width: fit-content;
@@ -204,10 +194,9 @@
         }
         @keyframes marquee {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); } /* Move half width because we duplicate content */
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* Glassmorphism Panel */
         .glass-panel {
             background: rgba(250, 250, 250, 0.85);
             backdrop-filter: blur(12px);
@@ -215,7 +204,6 @@
             border: 1px solid rgba(193, 166, 141, 0.3);
         }
 
-        /* Modal specific animations */
         #villa-modal {
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
@@ -232,7 +220,17 @@
 </head>
 <body class="antialiased font-sans text-luxury-dark selection:bg-luxury-gold selection:text-white">
 
-    <!-- Custom Cursor (Desktop Only via CSS) -->
+    <!-- Custom Luxury Toast Alert -->
+    <div id="luxury-toast" class="fixed top-10 left-1/2 -translate-x-1/2 z-[200] transform translate-y-[-120px] opacity-0 pointer-events-none transition-all duration-500 max-w-md w-full px-4">
+        <div class="glass-panel px-6 py-4 rounded-sm shadow-xl flex items-center justify-between gap-4 border border-luxury-gold">
+            <p id="toast-message" class="font-sans text-xs tracking-wide text-luxury-dark font-medium leading-relaxed"></p>
+            <button onclick="hideToast()" class="text-luxury-stone hover:text-luxury-dark transition-colors pointer-hover">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Cursor (Desktop Only) -->
     <div class="custom-cursor hidden md:flex" id="cursor">
         <span class="custom-cursor-text">View<br>Space</span>
     </div>
@@ -244,11 +242,11 @@
             
             <div class="flex items-center gap-10">
                 <div class="hidden md:flex gap-10 font-sans text-xs tracking-widest uppercase">
-                    <a href="#collection" data-i18n="nav-collection" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">The Collection</a>
-                    <a href="#rates" data-i18n="nav-rates" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Rates</a>
-                    <a href="#spaces" data-i18n="nav-spaces" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Spaces</a>
+                    <a href="#collection" data-i18n="nav-collection" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Koleksi Kami</a>
+                    <a href="#rates" data-i18n="nav-rates" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Tarif</a>
+                    <a href="#spaces" data-i18n="nav-spaces" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Sudut Kebersamaan</a>
                     <a href="#journal" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Journal</a>
-                    <a href="#booking" data-i18n="nav-reserve" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Reserve</a>
+                    <a href="#booking" data-i18n="nav-reserve" class="hover:text-luxury-gold transition-colors duration-300 pointer-hover">Reservasi</a>
                 </div>
 
                 <!-- Language Switcher -->
@@ -274,23 +272,23 @@
 
         <!-- Content -->
         <div class="relative z-10 text-center px-6 mt-16">
-            <p class="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-luxury-gray mb-6 reveal-up" data-i18n="hero-tag">The Curated Stay</p>
+            <p class="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-luxury-gray mb-6 reveal-up" data-i18n="hero-tag">Momen Liburan yang Terkurasi</p>
             <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 reveal-up" style="transition-delay: 0.1s;" data-i18n="hero-title">
-                A Curated Collection<br>of Family Villas in Batu
+                Kehangatan Liburan Keluarga<br>di Sejuknya Kota Batu
             </h1>
             <p class="font-sans text-sm md:text-base text-luxury-gray max-w-xl mx-auto mb-12 font-light reveal-up" style="transition-delay: 0.2s;" data-i18n="hero-sub">
-                Three thoughtfully selected villas designed for memorable family gatherings, surrounded by the cool breeze of Batu city.
+                Tiga pilihan villa keluarga yang nyaman dan ramah anak, dirancang khusus untuk merajut kembali kebersamaan, tawa, dan kenangan indah bersama orang-orang tercinta.
             </p>
             <div class="flex flex-col md:flex-row gap-6 justify-center items-center reveal-up" style="transition-delay: 0.3s;">
-                <a href="#collection" class="font-sans text-xs tracking-widest uppercase text-white border-b border-white pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="hero-explore">Explore The Collection</a>
-                <a href="#booking" class="px-8 py-3 bg-luxury-gold text-white font-sans text-xs tracking-widest uppercase hover:bg-white hover:text-luxury-dark transition-all duration-500 pointer-hover" data-i18n="hero-book">Book Your Stay</a>
+                <a href="#collection" class="font-sans text-xs tracking-widest uppercase text-white border-b border-white pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="hero-explore">Jelajahi Koleksi</a>
+                <a href="#booking" class="px-8 py-3 bg-luxury-gold text-white font-sans text-xs tracking-widest uppercase hover:bg-white hover:text-luxury-dark transition-all duration-500 pointer-hover" data-i18n="hero-book">Pesan Sekarang</a>
             </div>
         </div>
 
         <!-- Bottom Navigation -->
         <div class="absolute bottom-10 w-full px-8 md:px-16 z-10 flex justify-between items-end">
             <div class="hidden md:block">
-                <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gray" data-i18n="hero-scroll">Scroll to discover</p>
+                <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gray" data-i18n="hero-scroll">Gulir untuk eksplorasi</p>
                 <div class="w-px h-12 bg-luxury-gold mt-4 mx-auto md:ml-4"></div>
             </div>
             <div class="flex gap-8 text-white/70 font-sans text-[10px] tracking-widest uppercase">
@@ -306,7 +304,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-16">
             
             <div class="text-center mb-24 reveal-up">
-                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="col-title">The Residences</h2>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="col-title">Koleksi Hunian</h2>
                 <div class="w-12 h-px bg-luxury-gold mx-auto"></div>
             </div>
 
@@ -319,15 +317,15 @@
                     <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4">Residence 01</p>
                     <h3 class="font-serif text-3xl md:text-4xl mb-6">Permata Garden B5</h3>
                     <p class="font-sans text-sm text-luxury-stone leading-relaxed font-light mb-8" data-i18n="v1-short-desc">
-                        A sanctuary of contemporary elegance. Designed with expansive open spaces that blur the lines between indoor comfort and outdoor serenity, perfect for large family retreats.
+                        Rumah kedua yang hangat untuk keluarga besar Anda. Dengan ruang keluarga yang lapang dan taman privat, tempat anak-anak dapat berlari bebas selagi orang tua bercengkerama menikmati teh hangat di sore hari.
                     </p>
                     <ul class="font-sans text-xs tracking-wider uppercase text-luxury-dark space-y-3 mb-10 border-l border-luxury-gold pl-4">
-                        <li><span data-i18n="v-bed-4">4 Bedrooms</span></li>
-                        <li><span data-i18n="v-guests-10">Up to 10 Guests</span></li>
-                        <li><span data-i18n="v-garden">Private Garden View</span></li>
-                        <li><span data-i18n="v-kitchen">Modern Kitchen</span></li>
+                        <li><span data-i18n="v-bed-4">4 Kamar Tidur</span></li>
+                        <li><span data-i18n="v-guests-10">Hingga 10 Tamu</span></li>
+                        <li><span data-i18n="v-garden">Pemandangan Taman Privat</span></li>
+                        <li><span data-i18n="v-kitchen">Dapur Modern Lengkap</span></li>
                     </ul>
-                    <button onclick="openModal('b5')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">View Residence</button>
+                    <button onclick="openModal('b5')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">Lihat Hunian Detail</button>
                 </div>
             </div>
 
@@ -340,15 +338,15 @@
                     <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4">Residence 02</p>
                     <h3 class="font-serif text-3xl md:text-4xl mb-6">Taman Harmoni C50</h3>
                     <p class="font-sans text-sm text-luxury-stone leading-relaxed font-light mb-8" data-i18n="v2-short-desc">
-                        Minimalist architecture meets mountain warmth. This villa offers a sophisticated palette of natural materials and a rooftop space for evening gatherings beneath the stars.
+                        Penuh kehangatan di tengah sejuknya udara Batu. Villa ini menawarkan suasana yang tenang dengan rooftop keluarga yang ramah, sangat pas untuk membakar jagung bersama di bawah langit malam bertabur bintang.
                     </p>
                     <ul class="font-sans text-xs tracking-wider uppercase text-luxury-dark space-y-3 mb-10 border-l border-luxury-gold pl-4">
-                        <li><span data-i18n="v-bed-3">3 Bedrooms</span></li>
-                        <li><span data-i18n="v-guests-8">Up to 8 Guests</span></li>
-                        <li><span data-i18n="v-rooftop">Rooftop Access</span></li>
-                        <li><span data-i18n="v-bbq">BBQ Facility</span></li>
+                        <li><span data-i18n="v-bed-3">3 Kamar Tidur</span></li>
+                        <li><span data-i18n="v-guests-8">Hingga 8 Tamu</span></li>
+                        <li><span data-i18n="v-rooftop">Akses Area Rooftop</span></li>
+                        <li><span data-i18n="v-bbq">Peralatan BBQ Premium</span></li>
                     </ul>
-                    <button onclick="openModal('c50')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">View Residence</button>
+                    <button onclick="openModal('c50')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">Lihat Hunian Detail</button>
                 </div>
             </div>
 
@@ -361,26 +359,28 @@
                     <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4">Residence 03</p>
                     <h3 class="font-serif text-3xl md:text-4xl mb-6">Taman Harmoni C51</h3>
                     <p class="font-sans text-sm text-luxury-stone leading-relaxed font-light mb-8" data-i18n="v3-short-desc">
-                        A harmonious blend of classic charm and modern amenities. Featuring an inviting gathering room and thoughtful touches designed specifically for family connectivity.
+                        Sentuhan tradisional yang bersahaja dan menenangkan. Dilengkapi ruang makan keluarga yang luas dan area santai yang dirancang khusus untuk mendekatkan kembali kehangatan antar generasi.
                     </p>
                     <ul class="font-sans text-xs tracking-wider uppercase text-luxury-dark space-y-3 mb-10 border-l border-luxury-gold pl-4">
-                        <li><span data-i18n="v-bed-3">3 Bedrooms</span></li>
-                        <li><span data-i18n="v-guests-8">Up to 8 Guests</span></li>
-                        <li><span data-i18n="v-living">Spacious Living Area</span></li>
-                        <li><span data-i18n="v-smart">Smart Entertainment</span></li>
+                        <li><span data-i18n="v-bed-3">3 Kamar Tidur</span></li>
+                        <li><span data-i18n="v-guests-8">Hingga 8 Tamu</span></li>
+                        <li><span data-i18n="v-living">Ruang Keluarga Lapang</span></li>
+                        <li><span data-i18n="v-smart">Sistem Hiburan Pintar</span></li>
                     </ul>
-                    <button onclick="openModal('c51')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">View Residence</button>
+                    <button onclick="openModal('c51')" class="font-sans text-xs tracking-widest uppercase text-luxury-dark border-b border-luxury-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-all duration-300 pointer-hover" data-i18n="v-view">Lihat Hunian Detail</button>
                 </div>
             </div>
 
         </div>
-    <!-- SECTION 2.5: THE PRICELIST (CAROUSEL) -->
+    </section>
+
+    <!-- SECTION 2.5: THE RATES & PACKAGES (CAROUSEL LOOPING) -->
     <section id="rates" class="py-24 bg-[#F5F5F5] overflow-hidden relative">
         <div class="text-center mb-16 reveal-up px-6">
-            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Rates & Packages</p>
-            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4 tracking-wide" data-i18n="rates-title">Hand-Picked Residences</h2>
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="rates-tag">Tarif & Paket Eksklusif</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4 tracking-wide" data-i18n="rates-title">Pilihan Villa Keluarga Terbaik</h2>
             <div class="w-12 h-px bg-luxury-gold mx-auto mb-6"></div>
-            <p class="font-sans text-sm text-luxury-stone font-light cursor-pointer hover:text-luxury-gold transition-colors" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})" data-i18n="see-all">See all our villas</p>
+            <p class="font-sans text-sm text-luxury-stone font-light cursor-pointer hover:text-luxury-gold transition-colors" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})" data-i18n="see-all">Lihat semua villa kami</p>
         </div>
 
         <div class="relative max-w-[1600px] mx-auto px-0 md:px-12 group reveal-up">
@@ -393,7 +393,7 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
 
-            <!-- Carousel Container -->
+            <!-- Carousel Container (Horizontal Looping Style Layout) -->
             <div id="villa-carousel" class="flex overflow-x-auto gap-6 px-6 md:px-4 snap-x snap-mandatory hide-scrollbar pb-12 pt-4 scroll-smooth">
                 
                 <!-- Card 1: Permata Garden B5 -->
@@ -404,13 +404,13 @@
                     <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                         <div>
                             <h3 class="font-serif text-2xl text-luxury-dark mb-2">Permata Garden B5</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
                             <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-4">4 Bedrooms</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-10">10 Adults</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-4">4 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-10">10 Dewasa</span></span>
                             </div>
                         </div>
-                        <button onclick="openModal('b5')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
+                        <button onclick="openModal('b5')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
                     </div>
                 </div>
 
@@ -422,13 +422,13 @@
                     <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                         <div>
                             <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C50</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
                             <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Bedrooms</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Adults</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
                             </div>
                         </div>
-                        <button onclick="openModal('c50')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
+                        <button onclick="openModal('c50')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
                     </div>
                 </div>
 
@@ -440,13 +440,13 @@
                     <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                         <div>
                             <h3 class="font-serif text-2xl text-luxury-dark mb-2">Taman Harmoni C51</h3>
-                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Batu City, East Java</span></p>
+                            <p class="font-sans text-xs text-luxury-stone mb-4 flex items-center gap-2"><i class="fas fa-map-marker-alt text-luxury-gold/50"></i> <span data-i18n="loc-batu">Kota Batu, Jawa Timur</span></p>
                             <div class="flex gap-6 font-sans text-xs text-luxury-dark/80">
-                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Bedrooms</span></span>
-                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Adults</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-bed text-luxury-gold"></i> <span data-i18n="v-bed-3">3 Kamar Tidur</span></span>
+                                <span class="flex items-center gap-2"><i class="fas fa-user text-luxury-gold"></i> <span data-i18n="adults-8">8 Dewasa</span></span>
                             </div>
                         </div>
-                        <button onclick="openModal('c51')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Quick View</button>
+                        <button onclick="openModal('c51')" class="px-6 py-3 bg-luxury-dark text-white font-sans text-[10px] tracking-widest uppercase hover:bg-luxury-gold transition-colors w-full md:w-auto shrink-0 pointer-hover rounded-sm" data-i18n="qv-btn">Lihat Cepat</button>
                     </div>
                 </div>
 
@@ -491,7 +491,7 @@
                         <p id="modal-desc" class="font-sans text-sm text-luxury-dark/70 font-light leading-relaxed mb-8"></p>
                         
                         <div class="mb-8">
-                            <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Facilities & Advantages</p>
+                            <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-dark border-b border-luxury-gray pb-2 mb-4" data-i18n="m-amenities">Fasilitas Utama</p>
                             <ul id="modal-amenities" class="font-sans text-sm text-luxury-dark/70 space-y-3 font-light">
                                 <!-- Injected via JS -->
                             </ul>
@@ -500,13 +500,13 @@
 
                     <!-- Pricing & Action -->
                     <div class="mt-8 pt-6 border-t border-luxury-gray shrink-0">
-                        <p class="font-sans text-xs text-luxury-stone mb-1 uppercase tracking-widest" data-i18n="qv-start">Starting From</p>
+                        <p class="font-sans text-xs text-luxury-stone mb-1 uppercase tracking-widest" data-i18n="qv-start">Harga Mulai Dari</p>
                         <div class="flex items-baseline gap-2 mb-6">
                             <h4 id="modal-price" class="font-serif text-3xl text-luxury-dark">Rp 0</h4>
-                            <span class="font-sans text-xs text-luxury-stone font-light">/ night</span>
+                            <span class="font-sans text-xs text-luxury-stone font-light">/ malam</span>
                         </div>
                         
-                        <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover rounded-sm shadow-lg" data-i18n="qv-book">Book This Villa Now</button>
+                        <button onclick="prefillBookingFromModal()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover rounded-sm shadow-lg" data-i18n="qv-book">Pesan Villa Ini Sekarang</button>
                     </div>
 
                 </div>
@@ -519,10 +519,10 @@
         <div class="max-w-7xl mx-auto px-6 md:px-16">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
                 <div>
-                    <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="spaces-tag">Interior & Exterior</p>
-                    <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark" data-i18n="spaces-title">Architectural Details</h2>
+                    <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="spaces-tag">Sudut Kebersamaan</p>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark" data-i18n="spaces-title">Ruang Penuh Cerita</h2>
                 </div>
-                <p class="font-sans text-sm text-luxury-stone max-w-sm mt-6 md:mt-0 font-light" data-i18n="spaces-sub">Every corner is designed with intention, blending premium materials with comforting aesthetics.</p>
+                <p class="font-sans text-sm text-luxury-stone max-w-sm mt-6 md:mt-0 font-light" data-i18n="spaces-sub">Setiap jengkal sudut villa kami rancang dengan kasih sayang untuk menghadirkan kenyamanan, keamanan anak-anak, dan kehangatan berkumpul.</p>
             </div>
 
             <div class="spaces-grid reveal-up">
@@ -530,43 +530,43 @@
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Living Area">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-la">Living Area</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-la-sub">Gathering Space</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-la">Ruang Tengah</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-la-sub">Hangatnya Canda Tawa</p>
                     </div>
                 </div>
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master Bedroom">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ms">Master Suite</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ms-sub">Premium Comfort</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ms">Peraduan Orang Tua</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ms-sub">Istirahat yang Tenang</p>
                     </div>
                 </div>
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kitchen">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-kt">The Kitchen</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-kt-sub">Fully Equipped</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-kt">Area Dapur</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-kt-sub">Racikan Kasih Ibu</p>
                     </div>
                 </div>
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bathroom">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-sc">Sanctuary</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-sc-sub">Modern Fixtures</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-sc">Ruang Bersih Diri</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-sc-sub">Segarnya Air Pegunungan</p>
                     </div>
                 </div>
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Outdoor">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ext">The Exterior</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ext-sub">Private Oasis</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ext">Taman Bermain</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ext-sub">Bermain Bebas di Alam</p>
                     </div>
                 </div>
                 <div class="space-item pointer-hover">
                     <img src="https://images.unsplash.com/photo-1533759413974-9e15f3b745ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dining">
                     <div class="overlay">
-                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ds">Dining Space</p>
-                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ds-sub">Family Meals</p>
+                        <p class="font-serif text-2xl mb-2" data-i18n="sp-ds">Ruang Makan</p>
+                        <p class="font-sans text-xs tracking-widest uppercase font-light" data-i18n="sp-ds-sub">Suapan Penuh Berkah</p>
                     </div>
                 </div>
             </div>
@@ -576,8 +576,8 @@
     <!-- SECTION 4: THE EXPERIENCE -->
     <section class="py-24 bg-luxury-white overflow-hidden">
         <div class="text-center mb-16 reveal-up">
-            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="exp-title">The Experience</h2>
-            <p class="font-sans text-sm text-luxury-stone font-light max-w-md mx-auto" data-i18n="exp-sub">Moments crafted for family connection, surrounded by the tranquility of nature.</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="exp-title">Rajutan Kenangan Indah</h2>
+            <p class="font-sans text-sm text-luxury-stone font-light max-w-md mx-auto" data-i18n="exp-sub">Bukan sekadar menginap, melainkan momen-momen berharga yang merekatkan kembali ikatan kasih sayang keluarga.</p>
         </div>
 
         <div class="relative w-full" data-cursor="view">
@@ -585,37 +585,37 @@
                 <!-- Double content for seamless loop -->
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Family Gathering">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-1">Morning Coffee</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-1">Kopi Pagi yang Tenang</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="BBQ Session">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-2">BBQ Evening</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-2">Malam BBQ Hangat</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Batu View">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-3">City Views</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-3">Pemandangan Indah Batu</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Family Time">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-4">Quality Time</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-4">Waktu Berkualitas Bersama</p>
                 </div>
                 
                 <!-- Set 2 (Duplicate) -->
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Family Gathering">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-1">Morning Coffee</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-1">Kopi Pagi yang Tenang</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="BBQ Session">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-2">BBQ Evening</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-2">Malam BBQ Hangat</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Batu View">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-3">City Views</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-3">Pemandangan Indah Batu</p>
                 </div>
                 <div class="w-[300px] md:w-[450px] h-[400px] shrink-0 pointer-hover">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Family Time">
-                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-4">Quality Time</p>
+                    <p class="mt-4 font-sans text-xs tracking-widest uppercase text-luxury-stone" data-i18n="ex-item-4">Waktu Berkualitas Bersama</p>
                 </div>
             </div>
         </div>
@@ -623,24 +623,23 @@
 
     <!-- SECTION 5: BOOK YOUR STAY -->
     <section id="booking" class="py-24 relative overflow-hidden bg-luxury-gray">
-        <!-- Abstract Background Shape -->
         <div class="absolute -top-40 -right-40 w-96 h-96 bg-luxury-gold opacity-10 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-luxury-dark opacity-5 rounded-full blur-3xl"></div>
 
         <div class="max-w-4xl mx-auto px-6 relative z-10 reveal-up">
             <div class="text-center mb-12">
-                <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="b-tag">Reservation</p>
-                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="b-title">Secure Your Dates</h2>
-                <p class="font-sans text-sm text-luxury-stone font-light" data-i18n="b-sub">Experience the warmth of our curated villas.</p>
+                <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-2" data-i18n="b-tag">Formulir Reservasi</p>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="b-title">Amankan Tanggal Anda</h2>
+                <p class="font-sans text-sm text-luxury-stone font-light" data-i18n="b-sub">Rasakan langsung ketenangan menginap di jaringan villa terkurasi kami.</p>
             </div>
 
             <div class="glass-panel p-8 md:p-12 shadow-2xl shadow-black/5">
                 <form id="booking-form" class="space-y-6">
                     <!-- Villa Selection -->
                     <div>
-                        <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-select">Select Residence</label>
+                        <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-select">Pilih Villa</label>
                         <select id="villa-select" class="w-full bg-transparent border-b border-luxury-stone/50 py-3 text-luxury-dark font-serif text-lg focus:outline-none focus:border-luxury-gold transition-colors appearance-none pointer-hover rounded-none">
-                            <option value="" disabled selected data-i18n="b-choose">Choose a Villa</option>
+                            <option value="" disabled selected data-i18n="b-choose">Silakan Pilih Villa</option>
                             <option value="Permata Garden B5">Permata Garden B5</option>
                             <option value="Taman Harmoni C50">Taman Harmoni C50</option>
                             <option value="Taman Harmoni C51">Taman Harmoni C51</option>
@@ -650,12 +649,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Check In -->
                         <div>
-                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-in">Check In</label>
+                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-in">Tanggal Masuk (Check-In)</label>
                             <input type="date" id="check-in" class="w-full bg-transparent border-b border-luxury-stone/50 py-3 text-luxury-dark font-sans focus:outline-none focus:border-luxury-gold transition-colors pointer-hover rounded-none" onclick="this.showPicker()">
                         </div>
                         <!-- Check Out -->
                         <div>
-                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-out">Check Out</label>
+                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-out">Tanggal Keluar (Check-Out)</label>
                             <input type="date" id="check-out" class="w-full bg-transparent border-b border-luxury-stone/50 py-3 text-luxury-dark font-sans focus:outline-none focus:border-luxury-gold transition-colors pointer-hover rounded-none" disabled onclick="this.showPicker()">
                         </div>
                     </div>
@@ -663,7 +662,7 @@
                     <!-- Guests & Dynamic Calculations -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
                         <div>
-                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-guests">Guests</label>
+                            <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-guests">Jumlah Tamu</label>
                             <select id="guests" class="w-full bg-transparent border-b border-luxury-stone/50 py-3 text-luxury-dark font-sans focus:outline-none focus:border-luxury-gold transition-colors appearance-none pointer-hover rounded-none">
                                 <option value="1-4">1 - 4 Guests</option>
                                 <option value="5-8" selected>5 - 8 Guests</option>
@@ -674,30 +673,30 @@
                         <!-- Dynamic Night Calculation & Promo Message -->
                         <div id="night-calc-wrapper" class="h-[50px] flex items-center">
                             <p id="promo-message" class="font-sans text-xs text-luxury-gold hidden opacity-0 transition-opacity duration-500">
-                                <i class="fas fa-star mr-2"></i><span data-i18n="promo-active">Extended Stay Benefit: You receive 10% special discount.</span>
+                                <i class="fas fa-star mr-2"></i><span data-i18n="promo-active">Promo Durasi Menginap Aktif: Anda berhak mendapatkan diskon spesial 10%.</span>
                             </p>
                         </div>
                     </div>
 
                     <!-- ESTIMATOR BREAKDOWN -->
                     <div id="estimator-panel" class="hidden bg-luxury-gray/50 p-6 border-l border-luxury-gold space-y-4 transition-all duration-500">
-                        <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold font-semibold" data-i18n="est-title">Estimated Cost Summary</p>
+                        <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold font-semibold" data-i18n="est-title">Rincian Perkiraan Biaya</p>
                         <div class="font-sans text-xs space-y-2 text-luxury-stone">
                             <div class="flex justify-between">
-                                <span data-i18n="est-nights">Duration</span>
+                                <span data-i18n="est-nights">Durasi Menginap</span>
                                 <span id="est-nights-val" class="font-medium text-luxury-dark">-</span>
                             </div>
                             <div class="flex justify-between">
-                                <span data-i18n="est-base">Base Rate Calculation</span>
+                                <span data-i18n="est-base">Kalkulasi Tarif Dasar</span>
                                 <span id="est-base-val" class="font-medium text-luxury-dark">-</span>
                             </div>
                             <div class="flex justify-between text-luxury-gold hidden" id="est-discount-row">
-                                <span data-i18n="est-discount">Extended Stay Promo (10%)</span>
+                                <span data-i18n="est-discount">Diskon Stay 3 Malam+ (10%)</span>
                                 <span id="est-discount-val" class="font-semibold">-</span>
                             </div>
                             <hr class="border-luxury-stone/20 my-2">
                             <div class="flex justify-between text-sm text-luxury-dark font-semibold">
-                                <span data-i18n="est-total">Estimated Total Price</span>
+                                <span data-i18n="est-total">Perkiraan Total Biaya</span>
                                 <span id="est-total-val" class="text-base text-luxury-gold font-serif">-</span>
                             </div>
                         </div>
@@ -705,16 +704,16 @@
 
                     <!-- Special Requests / Permintaan Khusus -->
                     <div>
-                        <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-req">Special Requests / Permintaan Khusus</label>
+                        <label class="block font-sans text-xs tracking-widest uppercase text-luxury-dark mb-2" data-i18n="b-req">Permintaan Khusus / Catatan Tambahan</label>
                         <textarea id="special-requests" rows="3" placeholder="Tuliskan permintaan khusus Anda di sini (misal: tambahan kasur, setup barbeque, kedatangan malam, dll.)" class="w-full bg-transparent border-b border-luxury-stone/50 py-3 text-luxury-dark font-sans focus:outline-none focus:border-luxury-gold transition-colors pointer-hover resize-none placeholder-luxury-stone/50 rounded-none"></textarea>
                     </div>
 
                     <div class="pt-6">
                         <button type="button" onclick="submitBooking()" class="w-full py-4 bg-luxury-dark text-white font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold transition-colors pointer-hover flex justify-center items-center gap-3">
-                            <span data-i18n="b-btn">Request Reservation via WhatsApp</span>
+                            <span data-i18n="b-btn">Ajukan Reservasi Via WhatsApp</span>
                             <i class="fab fa-whatsapp text-lg"></i>
                         </button>
-                        <p class="text-center font-sans text-[10px] text-luxury-stone mt-4 font-light" data-i18n="b-disclaimer">You will be redirected to WhatsApp to confirm availability.</p>
+                        <p class="text-center font-sans text-[10px] text-luxury-stone mt-4 font-light" data-i18n="b-disclaimer">Sistem akan otomatis mengarahkan rincian pesanan Anda ke kontak WhatsApp kami.</p>
                     </div>
                 </form>
             </div>
@@ -725,20 +724,19 @@
     <section class="py-24 bg-luxury-white">
         <div class="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row gap-16 items-center">
             <div class="w-full md:w-1/2 reveal-up">
-                <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4" data-i18n="loc-tag">The Neighborhood</p>
-                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-8" data-i18n="loc-title">Heart of Batu</h2>
+                <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-stone mb-4" data-i18n="loc-tag">Area Sekitar</p>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-8" data-i18n="loc-title">Jantung Kota Batu</h2>
                 <p class="font-sans text-sm text-luxury-stone font-light leading-relaxed mb-8" data-i18n="loc-sub">
-                    Strategically situated to offer both peaceful seclusion and immediate access to Batu's most celebrated attractions. A perfect base camp for your family's explorations.
+                    Lokasi strategis yang memudahkan Anda sekeluarga menjangkau taman bermain anak, pusat edukasi, dan kuliner khas Batu tanpa rasa lelah.
                 </p>
                 <ul class="space-y-4 font-sans text-sm text-luxury-dark">
-                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-1">5 Mins to Jatim Park 3</span></li>
-                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-2">10 Mins to Museum Angkut</span></li>
-                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-3">12 Mins to Batu Night Spectacular</span></li>
-                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-4">Near Batu Culinary Center</span></li>
+                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-1">5 Menit ke Jatim Park 3</span></li>
+                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-2">10 Menit ke Museum Angkut</span></li>
+                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-3">12 Menit ke Batu Night Spectacular</span></li>
+                    <li class="flex items-center gap-4 border-b border-luxury-gray pb-3"><i class="fas fa-map-marker-alt text-luxury-gold"></i> <span data-i18n="loc-4">Dekat dengan Pusat Kuliner Batu</span></li>
                 </ul>
             </div>
             <div class="w-full md:w-1/2 h-[500px] bg-luxury-gray reveal-up">
-                <!-- Google Maps Embed Placeholder -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126442.22741876527!2d112.44970471168128!3d-7.854089856501865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880ce6c3430bd%3A0x4027a76e3531b70!2sBatu%2C%20Batu%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; filter: grayscale(100%) contrast(1.2) opacity(0.8);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -748,9 +746,9 @@
     <section id="journal" class="py-24 bg-luxury-gray">
         <div class="max-w-7xl mx-auto px-6 md:px-16">
             <div class="text-center mb-16 reveal-up">
-                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="j-title">Inside Batu</h2>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxury-dark mb-4" data-i18n="j-title">Catatan Keluarga</h2>
                 <div class="w-12 h-px bg-luxury-gold mx-auto mb-6"></div>
-                <p class="font-sans text-sm text-luxury-stone font-light" data-i18n="j-sub">Curated guides for your stay.</p>
+                <p class="font-sans text-sm text-luxury-stone font-light" data-i18n="j-sub">Inspirasi aktivitas seru untuk mewarnai liburan Anda sekeluarga.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up">
@@ -759,9 +757,9 @@
                     <div class="overflow-hidden aspect-[4/5] mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jatim Park" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
-                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3">Family Guide</p>
-                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-1">The Ultimate Family Guide to Jatim Park 3</h3>
-                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Read Journal</p>
+                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3" data-i18n="j-art-tag-1">Panduan Liburan</p>
+                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-1">Panduan Eksklusif Keluarga saat Mengunjungi Jatim Park 3</h3>
+                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Baca Selengkapnya</p>
                 </a>
                 
                 <!-- Article 2 -->
@@ -769,9 +767,9 @@
                     <div class="overflow-hidden aspect-[4/5] mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Culinary" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
-                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3">Gastronomy</p>
-                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-2">Best Culinary Destinations Around Our Villas</h3>
-                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Read Journal</p>
+                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3" data-i18n="j-art-tag-2">Santapan Bersama</p>
+                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-2">Rekomendasi Kuliner Otentik dan Modern Terbaik Sekitar Villa</h3>
+                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Baca Selengkapnya</p>
                 </a>
 
                 <!-- Article 3 -->
@@ -779,9 +777,9 @@
                     <div class="overflow-hidden aspect-[4/5] mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Morning Batu" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
-                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3">Lifestyle</p>
-                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-3">A Quiet Morning: Why Families Choose Private Villas</h3>
-                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Read Journal</p>
+                    <p class="font-sans text-[10px] tracking-widest uppercase text-luxury-gold mb-3" data-i18n="j-art-tag-3">Kualitas Kebersamaan</p>
+                    <h3 class="font-serif text-xl text-luxury-dark mb-3 group-hover:text-luxury-gold transition-colors" data-i18n="j-art-3">Ketenangan Pagi: Mengapa Villa Privat Jauh Lebih Istimewa</h3>
+                    <p class="font-sans text-xs text-luxury-stone font-light border-b border-luxury-dark/20 pb-4 inline-block" data-i18n="j-read">Baca Selengkapnya</p>
                 </a>
             </div>
         </div>
@@ -790,18 +788,17 @@
     <!-- SECTION 8: FINAL CTA -->
     <section class="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Golden Hour Image -->
             <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover filter brightness-75 sepia-[.2]" alt="Villa Golden Hour">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
         </div>
         
         <div class="relative z-10 text-center px-6 reveal-up">
-            <h2 class="font-serif text-4xl md:text-6xl text-white mb-6" data-i18n="cta-title">Reserve Your Family Getaway</h2>
+            <h2 class="font-serif text-4xl md:text-6xl text-white mb-6" data-i18n="cta-title">Pesan Liburan Keluarga Anda</h2>
             <p class="font-sans text-sm md:text-base text-white/80 max-w-lg mx-auto mb-10 font-light" data-i18n="cta-sub">
-                Experience a thoughtfully curated stay in the heart of Batu. Create lasting memories in spaces designed for connection.
+                Nikmati kemewahan peristirahatan pribadi yang didesain penuh kehangatan di tengah sejuknya alam Batu.
             </p>
             <button onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})" class="px-10 py-4 bg-white text-luxury-dark font-sans text-xs tracking-widest uppercase hover:bg-luxury-gold hover:text-white transition-colors duration-500 pointer-hover" data-i18n="cta-btn">
-                Begin Reservation
+                Mulai Reservasi
             </button>
         </div>
     </section>
@@ -812,14 +809,14 @@
             <div class="col-span-1 md:col-span-2">
                 <h3 class="font-serif text-2xl mb-6 tracking-widest uppercase">Villa Syariah Group.</h3>
                 <p class="font-sans text-sm text-white/60 font-light max-w-xs leading-relaxed" data-i18n="footer-desc">
-                    A curated collection of private family villas in Batu, East Java. Blending architectural elegance with the warmth of home.
+                    Koleksi villa keluarga privat terkurasi di Kota Batu, Jawa Timur. Memadukan arsitektur elegan dengan kehangatan rumah tinggal.
                 </p>
             </div>
             <div>
                 <h4 class="font-sans text-xs tracking-widest uppercase mb-6 text-luxury-gold">Contact</h4>
                 <ul class="font-sans text-sm text-white/60 space-y-3 font-light">
                     <li><a href="https://wa.me/628122653998" target="_blank" class="hover:text-white transition-colors pointer-hover">+62 812-2653-998</a></li>
-                    <li>Batu City, East Java</li>
+                    <li>Kota Batu, Jawa Timur</li>
                     <li>Indonesia</li>
                 </ul>
             </div>
@@ -843,24 +840,24 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- Multilingual System (ID/EN) ---
+        // --- STREAMING_CHUNK: Declaring translation keys and content dictionary ---
         let currentLang = 'id';
         const dictionary = {
             'id': {
                 'nav-collection': 'Koleksi Kami',
                 'nav-rates': 'Tarif',
-                'nav-spaces': 'Area Desain',
+                'nav-spaces': 'Sudut Kebersamaan',
                 'nav-reserve': 'Reservasi',
                 'hero-tag': 'Momen Liburan yang Terkurasi',
-                'hero-title': 'Koleksi Pilihan Villa\nKeluarga Premium di Batu',
-                'hero-sub': 'Tiga unit hunian peristirahatan mewah yang dirancang khusus untuk kenyamanan dan kehangatan gathering keluarga besar Anda di Kota Batu.',
+                'hero-title': 'Kehangatan Liburan Keluarga\ndi Sejuknya Kota Batu',
+                'hero-sub': 'Tiga pilihan villa keluarga yang nyaman dan ramah anak, dirancang khusus untuk merajut kembali kebersamaan, tawa, dan kenangan indah bersama orang-orang cinta.',
                 'hero-explore': 'Jelajahi Koleksi',
                 'hero-book': 'Pesan Sekarang',
                 'hero-scroll': 'Gulir untuk eksplorasi',
                 'col-title': 'Koleksi Hunian',
-                'v1-short-desc': 'Sebuah oase kemewahan kontemporer. Dirancang dengan ruang terbuka luas yang memadukan kenyamanan dalam rumah dan ketenangan alam terbuka, ideal untuk kumpul keluarga besar.',
-                'v2-short-desc': 'Saat arsitektur minimalis bertemu dengan kehangatan pegunungan. Menawarkan palet material alami yang sophisticated serta area rooftop intim di bawah langit malam berbintang.',
-                'v3-short-desc': 'Perpaduan harmonis antara pesona tropis klasik dan kenyamanan modern. Dilengkapi dengan ruang kumpul tengah yang lapang yang menyatukan setiap anggota keluarga.',
+                'v1-short-desc': 'Rumah kedua yang hangat untuk keluarga besar Anda. Dengan ruang keluarga yang lapang dan taman privat, tempat anak-anak dapat berlari bebas selagi orang tua bercengkerama menikmati teh hangat di sore hari.',
+                'v2-short-desc': 'Penuh kehangatan di tengah sejuknya udara Batu. Villa ini menawarkan suasana yang tenang dengan rooftop keluarga yang ramah, sangat pas untuk membakar jagung bersama di bawah langit malam bertabur bintang.',
+                'v3-short-desc': 'Sentuhan tradisional yang bersahaja dan menenangkan. Dilengkapi ruang makan keluarga yang luas dan area santai yang dirancang khusus untuk mendekatkan kembali kehangatan antar generasi.',
                 'v-bed-4': '4 Kamar Tidur',
                 'v-bed-3': '3 Kamar Tidur',
                 'v-guests-10': 'Hingga 10 Tamu',
@@ -880,34 +877,25 @@
                 'qv-start': 'Harga Mulai Dari',
                 'qv-book': 'Pesan Villa Ini Sekarang',
                 'rates-tag': 'Tarif & Paket Eksklusif',
-                'rates-title': 'Koleksi Pilihan Kami',
-                'rate-inc-5': 'Maksimal 8 Tamu (Sewa Eksklusif)',
-                'rate-inc-6': 'Area Balkon Rooftop dengan Pemandangan Alam',
-                'rate-inc-7': 'Peralatan Panggang BBQ Premium Komplit',
-                'rate-inc-8': 'Lounge Ruang Tengah yang Lapang',
-                'rate-inc-9': 'Suite TV Pintar (Netflix / YouTube)',
-                'm-details': 'Detail Unit',
-                'm-about': 'Tentang Hunian',
-                'm-amenities': 'Fasilitas Utama',
-                'm-location': 'Sorotan Lokasi',
-                'm-reserve': 'Reservasi Hunian Ini',
-                'spaces-tag': 'Interior & Eksterior',
-                'spaces-title': 'Detail Arsitektur',
-                'spaces-sub': 'Setiap sudut dirancang secara presisi, memadukan elemen material alami terbaik dengan estetika menenangkan.',
+                'rates-title': 'Pilihan Villa Keluarga Terbaik',
+                'm-amenities': 'Fasilitas & Keunggulan',
+                'spaces-tag': 'Sudut Kebersamaan',
+                'spaces-title': 'Ruang Penuh Cerita',
+                'spaces-sub': 'Setiap jengkal sudut villa kami rancang dengan kasih sayang untuk menghadirkan kenyamanan, keamanan anak-anak, dan kehangatan berkumpul.',
                 'sp-la': 'Ruang Tengah',
-                'sp-la-sub': 'Area Kumpul Keluarga',
-                'sp-ms': 'Kamar Utama',
-                'sp-ms-sub': 'Kenyamanan Premium',
+                'sp-la-sub': 'Hangatnya Canda Tawa',
+                'sp-ms': 'Peraduan Orang Tua',
+                'sp-ms-sub': 'Istirahat yang Tenang',
                 'sp-kt': 'Area Dapur',
-                'sp-kt-sub': 'Fasilitas Memasak Lengkap',
-                'sp-sc': 'Kamar Mandi',
-                'sp-sc-sub': 'Perlengkapan Modern',
-                'sp-ext': 'Halaman Luar',
-                'sp-ext-sub': 'Oase Hijau Privat',
+                'sp-kt-sub': 'Racikan Kasih Ibu',
+                'sp-sc': 'Ruang Bersih Diri',
+                'sp-sc-sub': 'Segarnya Air Pegunungan',
+                'sp-ext': 'Taman Bermain',
+                'sp-ext-sub': 'Bermain Bebas di Alam',
                 'sp-ds': 'Ruang Makan',
-                'sp-ds-sub': 'Makan Bersama Keluarga',
-                'exp-title': 'Kehangatan Pengalaman',
-                'exp-sub': 'Momen berharga yang dipersiapkan khusus demi koneksi dan memori keluarga yang tak terlupakan.',
+                'sp-ds-sub': 'Suapan Penuh Berkah',
+                'exp-title': 'Rajutan Kenangan Indah',
+                'exp-sub': 'Bukan sekadar menginap, melainkan momen-momen berharga yang merekatkan kembali ikatan kasih sayang keluarga.',
                 'ex-item-1': 'Kopi Pagi yang Tenang',
                 'ex-item-2': 'Malam BBQ Hangat',
                 'ex-item-3': 'Pemandangan Indah Batu',
@@ -931,13 +919,16 @@
                 'promo-active': 'Promo Durasi Menginap Aktif: Anda berhak mendapatkan diskon spesial 10%.',
                 'loc-tag': 'Area Sekitar',
                 'loc-title': 'Jantung Kota Batu',
-                'loc-sub': 'Didesain strategis untuk menghadirkan ketenangan beristirahat sekaligus akses instan ke seluruh destinasi ikonik Kota Wisata Batu.',
+                'loc-sub': 'Lokasi strategis yang memudahkan Anda sekeluarga menjangkau taman bermain anak, pusat edukasi, dan kuliner khas Batu tanpa rasa lelah.',
                 'loc-1': '5 Menit ke Jatim Park 3',
                 'loc-2': '10 Menit ke Museum Angkut',
                 'loc-3': '12 Menit ke Batu Night Spectacular',
                 'loc-4': 'Dekat dengan Pusat Kuliner Batu',
-                'j-title': 'Editorial Batu',
-                'j-sub': 'Panduan berlibur premium untuk menyempurnakan masa menginap Anda.',
+                'j-title': 'Catatan Keluarga',
+                'j-sub': 'Inspirasi aktivitas seru untuk mewarnai liburan Anda sekeluarga.',
+                'j-art-tag-1': 'Panduan Liburan',
+                'j-art-tag-2': 'Santapan Bersama',
+                'j-art-tag-3': 'Kualitas Kebersamaan',
                 'j-art-1': 'Panduan Eksklusif Keluarga saat Mengunjungi Jatim Park 3',
                 'j-art-2': 'Rekomendasi Kuliner Otentik dan Modern Terbaik Sekitar Villa',
                 'j-art-3': 'Ketenangan Pagi: Mengapa Villa Privat Jauh Lebih Istimewa',
@@ -948,20 +939,20 @@
                 'footer-desc': 'Koleksi villa keluarga privat terkurasi di Kota Batu, Jawa Timur. Memadukan arsitektur elegan dengan kehangatan rumah tinggal.'
             },
             'en': {
-                'nav-collection': 'The Collection',
+                'nav-collection': 'Our Collection',
                 'nav-rates': 'Rates',
-                'nav-spaces': 'Spaces',
+                'nav-spaces': 'Family Spaces',
                 'nav-reserve': 'Reserve',
-                'hero-tag': 'A Curated Holiday Moment',
-                'hero-title': 'A Curated Collection\nof Family Villas in Batu',
-                'hero-sub': 'Three thoughtfully selected villa sanctuaries custom-designed for the utmost comfort and connection of your big family gatherings in Batu.',
+                'hero-tag': 'A Curated Holiday Escape',
+                'hero-title': 'Warm Family Getaways<br>in Cool Batu City',
+                'hero-sub': 'Three cozy, family-friendly villas thoughtfully designed to weave together laughter, shared meals, and beautiful memories with your loved ones.',
                 'hero-explore': 'Explore Collection',
                 'hero-book': 'Book Stay',
-                'hero-scroll': 'Scroll to discover',
+                'hero-scroll': 'Scroll to explore',
                 'col-title': 'The Residences',
-                'v1-short-desc': 'A sanctuary of contemporary elegance. Designed with expansive open spaces that blur the lines between indoor comfort and outdoor serenity, perfect for large family retreats.',
-                'v2-short-desc': 'Where minimalist architecture meets mountain warmth. Offering a sophisticated palette of natural materials and an intimate rooftop space beneath the stars.',
-                'v3-short-desc': 'A harmonious blend of classic tropical charm and modern amenities. Featuring a spacious central gathering lounge that brings everyone together.',
+                'v1-short-desc': 'A warm second home for your extended family. Featuring a spacious living room and a private garden where children can play freely while parents share stories over warm tea.',
+                'v2-short-desc': 'Brimming with cozy warmth in the crisp Batu breeze. This villa offers a peaceful atmosphere with a family-friendly rooftop, perfect for starlit BBQ nights with the kids.',
+                'v3-short-desc': 'A charming and cozy retreat with a traditional touch. Features an expansive family dining area and relaxation spots designed to bring multiple generations closer.',
                 'v-bed-4': '4 Bedrooms',
                 'v-bed-3': '3 Bedrooms',
                 'v-guests-10': 'Up to 10 Guests',
@@ -980,42 +971,33 @@
                 'qv-btn': 'Quick View',
                 'qv-start': 'Starting From',
                 'qv-book': 'Book This Villa Now',
-                'rates-tag': 'Premium Rates & Inclusions',
-                'rates-title': 'Hand-Picked Residences',
-                'rate-inc-5': 'Max 8 Guests (Exclusive Whole Villa)',
-                'rate-inc-6': 'Scenic Private Rooftop Lounge Area',
-                'rate-inc-7': 'Complete Premium BBQ Grill Setup',
-                'rate-inc-8': 'Spacious Shared Living Lounge',
-                'rate-inc-9': 'Smart TV Suite (Netflix / YouTube)',
-                'm-details': 'Unit Details',
-                'm-about': 'About Residence',
-                'm-amenities': 'Primary Amenities',
-                'm-location': 'Location Highlight',
-                'm-reserve': 'Reserve This Villa',
-                'spaces-tag': 'Interior & Exterior Design',
-                'spaces-title': 'Architectural Details',
-                'spaces-sub': 'Every corner is crafted with absolute precision, matching finest organic materials with soothing aesthetics.',
+                'rates-tag': 'Rates & Packages',
+                'rates-title': 'Our Best Family Villas',
+                'm-amenities': 'Facilities & Advantages',
+                'spaces-tag': 'Cozy Corners',
+                'spaces-title': 'Spaces Filled with Stories',
+                'spaces-sub': 'Every corner of our villas is lovingly designed to ensure ultimate comfort, child safety, and cozy family gatherings.',
                 'sp-la': 'Living Lounge',
-                'sp-la-sub': 'Family Reunion Space',
-                'sp-ms': 'Master suite',
-                'sp-ms-sub': 'Premium Indulgence',
+                'sp-la-sub': 'Warm Laughter & Chat',
+                'sp-ms': 'Parents\' Cozy Retreat',
+                'sp-ms-sub': 'Peaceful Slumber',
                 'sp-kt': 'The Kitchen',
-                'sp-kt-sub': 'Complete Cooking Facilities',
-                'sp-sc': 'The Sanctuary',
-                'sp-sc-sub': 'Modern Bath Fixtures',
-                'sp-ext': 'The Outdoor',
-                'sp-ext-sub': 'Private Green Oasis',
+                'sp-kt-sub': 'Cooking with Love',
+                'sp-sc': 'Refresh & Renew',
+                'sp-sc-sub': 'Fresh Mountain Water',
+                'sp-ext': 'The Play Yard',
+                'sp-ext-sub': 'Playing Freely in Nature',
                 'sp-ds': 'Dining Area',
-                'sp-ds-sub': 'Family Shared Feast',
-                'exp-title': 'The Experience',
-                'exp-sub': 'Precious moments thoughtfully arranged to spark true connection and timeless family memories.',
+                'sp-ds-sub': 'Nourishing Moments Together',
+                'exp-title': 'Weaving Lifelong Memories',
+                'exp-sub': 'More than just a stay; these are precious moments that rekindle family love and connection.',
                 'ex-item-1': 'Quiet Morning Brew',
                 'ex-item-2': 'Joyful Backyard BBQ',
                 'ex-item-3': 'Scenic Batu Mountains',
                 'ex-item-4': 'Meaningful Quality Time',
                 'b-tag': 'Reservation Form',
                 'b-title': 'Secure Your Dates',
-                'b-sub': 'Experience the peaceful escape of our curated villa collection.',
+                'b-sub': 'Experience the peaceful escape of our curated family villa collection.',
                 'b-select': 'Select Residence',
                 'b-choose': 'Please Choose a Residence',
                 'b-in': 'Check-In Date',
@@ -1030,15 +1012,18 @@
                 'est-discount': 'Extended stay Promo (10%)',
                 'est-total': 'Estimated Total Cost',
                 'promo-active': 'Extended Stay Applied: You qualify for a special 10% discount.',
-                'loc-tag': 'The Location',
+                'loc-tag': 'The Neighborhood',
                 'loc-title': 'In the Heart of Batu',
-                'loc-sub': 'Ideally located to ensure both absolute rest seclusion and instant access to all celebrated tourist landmarks in Batu City.',
+                'loc-sub': 'A strategic location that lets you easily take the kids to theme parks, educational centers, and Batu’s finest dining without any hassle.',
                 'loc-1': '5 Minutes to Jatim Park 3',
                 'loc-2': '10 Minutes to Museum Angkut',
                 'loc-3': '12 Minutes to Batu Night Spectacular',
                 'loc-4': 'Short Distance to Batu Food Center',
-                'j-title': 'The Journal',
-                'j-sub': 'Finely curated travel guides to perfect your retreat.',
+                'j-title': 'Family Journal',
+                'j-sub': 'Fun activities to color your next family escape.',
+                'j-art-tag-1': 'Travel Guide',
+                'j-art-tag-2': 'Shared Feast',
+                'j-art-tag-3': 'Family Quality',
                 'j-art-1': 'The Ultimate Family Leisure Guide to Jatim Park 3',
                 'j-art-2': 'Best Authentic & Modern Culinary Destinations Near Our Villas',
                 'j-art-3': 'Serene Mornings: Why Private Villas Offer Far Superior Stays',
@@ -1046,14 +1031,14 @@
                 'cta-title': 'Reserve Your Family Getaway',
                 'cta-sub': 'Delight in the modern luxury of private family retreat spaces designed with utmost warmth in serene Batu.',
                 'cta-btn': 'Begin Booking Process',
-                'footer-desc': 'A collection of private boutique family villas in Batu, East Java. Merging architectural poise with structural comfort.'
+                'footer-desc': 'A collection of private boutique family villas in Batu, East Java. Merging family-friendly comfort with architectural charm.'
             }
         };
 
+        // --- STREAMING_CHUNK: Managing multilingual systems and dynamic UI text rendering ---
         function setLanguage(lang) {
             currentLang = lang;
             
-            // Toggle Button Colors in Navbar
             const btnId = document.getElementById('lang-id');
             const btnEn = document.getElementById('lang-en');
             if (lang === 'id') {
@@ -1068,43 +1053,59 @@
                 btnId.classList.remove('text-luxury-gold');
             }
 
-            // Translate DOM elements
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (dictionary[lang][key]) {
-                    // Check if it's a textarea placeholder
                     if (element.tagName === 'TEXTAREA' && element.hasAttribute('placeholder')) {
                         element.setAttribute('placeholder', dictionary[lang][key]);
                     } else {
-                        // Support HTML line breaks in translation dictionary
                         element.innerHTML = dictionary[lang][key].replace(/\n/g, '<br>');
                     }
                 }
             });
 
-            // Re-render price estimate text with correct language labels
             calculateNights();
         }
 
-        // --- Custom Cursor Logic ---
+        // --- Custom Luxury Toast system (replaces alert) ---
+        function showToast(message) {
+            const toast = document.getElementById('luxury-toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            toast.style.transform = 'translate(-50%, 0px)';
+            
+            setTimeout(() => {
+                hideToast();
+            }, 4000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('luxury-toast');
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0', 'pointer-events-none');
+            toast.style.transform = 'translate(-50%, -120px)';
+        }
+
+        // --- STREAMING_CHUNK: Managing scroll and animation triggers ---
+        // Custom Cursor Logic
         const cursor = document.getElementById('cursor');
         const pointerHoverElements = document.querySelectorAll('.pointer-hover, a, button, input, select, textarea');
         const viewHoverElements = document.querySelectorAll('[data-cursor="view"]');
 
-        // Only activate cursor tracking on non-touch devices
         if (window.matchMedia("(pointer: fine)").matches) {
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = e.clientX + 'px';
                 cursor.style.top = e.clientY + 'px';
             });
 
-            // Handle general hover state
             pointerHoverElements.forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('hover-state'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hover-state'));
             });
 
-            // Handle "View Space" specific state
             viewHoverElements.forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     cursor.classList.add('view-state');
@@ -1114,7 +1115,7 @@
             });
         }
 
-        // --- Hero Slideshow ---
+        // Hero Slideshow
         const slides = document.querySelectorAll('.hero-slide');
         let currentSlide = 0;
         
@@ -1124,21 +1125,21 @@
             slides[currentSlide].classList.add('active');
         }, 6000);
 
-        // --- Scroll Reveal Animation ---
+        // Scroll Reveal Animation
         const revealElements = document.querySelectorAll('.reveal-up');
         
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target); // Only reveal once
+                    revealObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // --- Navbar Scroll Effect ---
+        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1151,58 +1152,52 @@
             }
         });
 
-        // --- Pricing Database for Dynamic Cost Summary ---
+        // --- STREAMING_CHUNK: Managing booking database and carousel scroll actions ---
         const pricingDb = {
             'Permata Garden B5': { weekday: 1500000, weekend: 1800000 },
             'Taman Harmoni C50': { weekday: 1200000, weekend: 1500000 },
             'Taman Harmoni C51': { weekday: 1200000, weekend: 1500000 }
         };
 
-        // --- Carousel Logic ---
         function scrollCarousel(direction) {
             const carousel = document.getElementById('villa-carousel');
-            // Scroll by roughly one card width
             const scrollAmount = window.innerWidth < 768 ? window.innerWidth * 0.85 : 500; 
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // --- Data for Villas (Modal) ---
+        // --- STREAMING_CHUNK: Instantiating family villa descriptions and details ---
         const villaData = {
             'b5': {
                 name: 'Permata Garden B5',
-                desc: 'A sanctuary of contemporary elegance. Permata Garden B5 is designed with expansive open spaces that blur the lines between indoor comfort and outdoor serenity. Featuring premium furnishings, a fully equipped modern kitchen, and a private garden area perfect for morning coffees or intimate family gatherings.',
-                location: 'Located in a serene residential complex, offering absolute privacy while being just minutes away from Batu\'s main attractions.',
-                amenities: ['4 Premium Bedrooms', 'Accommodates up to 10 Guests', 'Private Garden Area', 'Fully Equipped Modern Kitchen', 'High-speed Wi-Fi', 'Smart TV & Entertainment', 'Air Conditioning', 'Hot Water'],
+                desc: 'Sebuah peristirahatan keluarga besar yang penuh kehangatan. Permata Garden B5 dirancang khusus ramah anak dengan ruang keluarga yang luas agar kakek, nenek, anak, dan cucu dapat bercengkrama bersama. Menampilkan area dapur modern untuk menyiapkan masakan hangat keluarga, serta taman hijau privat untuk bermain atau sekadar bersantai menikmati sejuknya Batu.',
+                location: 'Berada di area kompleks privat yang tenang, aman dari kebisingan jalan raya namun tetap sangat dekat dengan Jatim Park 3.',
+                amenities: ['4 Kamar Tidur Nyaman', 'Ideal untuk 10 Anggota Keluarga', 'Taman Bermain Hijau', 'Dapur Keluarga Lengkap', 'Wi-Fi Cepat untuk Streaming Anak', 'Smart TV & Sound System', 'Pemanas Air Higienis', 'Suasana Sejuk Alami'],
                 images: [
                     'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Living
-                    'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Bed
-                    'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Kitchen
-                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'  // Outdoor
+                    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                 ]
             },
             'c50': {
                 name: 'Taman Harmoni C50',
-                desc: 'Minimalist architecture meets mountain warmth. Taman Harmoni C50 offers a sophisticated palette of natural materials. The highlight of this property is its rooftop access, providing a stunning vantage point for evening gatherings beneath the Batu sky, complete with BBQ facilities.',
-                location: 'Nestled in the prestigious Taman Harmoni area, providing elevated views and a cool, refreshing micro-climate.',
-                amenities: ['3 Minimalist Bedrooms', 'Accommodates up to 8 Guests', 'Rooftop Access with View', 'BBQ Equipment', 'Modern Kitchenette', 'Cozy Living Area', 'Wi-Fi & Smart TV'],
+                desc: 'Hadir dengan suasana intim dan penuh kehangatan keluarga. Taman Harmoni C50 menyajikan pemandangan pegunungan yang asri. Keunggulan villa ini adalah area rooftop privat yang nyaman untuk menikmati momen membakar jagung bersama buah hati di bawah gemerlap bintang Kota Batu.',
+                location: 'Terletak di kawasan premium Taman Harmoni yang tenang, menghadirkan kesegaran udara pegunungan langsung di depan jendela Anda.',
+                amenities: ['3 Kamar Tidur Hangat', 'Muat hingga 8 Tamu', 'Rooftop Kumpul Keluarga', 'Peralatan BBQ Lengkap', 'Dapur Kecil Serbaguna', 'Ruang Keluarga Santai', 'Akses Wi-Fi Cepat'],
                 images: [
                     'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                    'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Living 2
-                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Bed 2
-                    'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // BBQ/Rooftop
+                    'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                 ]
             },
             'c51': {
                 name: 'Taman Harmoni C51',
-                desc: 'A harmonious blend of classic tropical charm and modern amenities. C51 features an inviting, spacious central gathering room designed specifically for family connectivity. The warm wooden accents and ample natural light create an instantly welcoming atmosphere.',
-                location: 'Adjacent to C50, making it an ideal option to book together for very large extended family gatherings.',
-                amenities: ['3 Classic Bedrooms', 'Accommodates up to 8 Guests', 'Spacious Family Room', 'Dining Area', 'Kitchen set', 'Wi-Fi & Entertainment', 'Tropical Garden Touch'],
+                desc: 'Memadukan kenyamanan tradisional yang bersahaja dengan ruang berkumpul interaktif. Ruang makan yang luas di villa ini dirancang sebagai episentrum kebersamaan—tempat keluarga menikmati santapan bersama sambil bercerita tanpa sekat. Sangat ramah lansia dengan akses area bawah yang lapang.',
+                location: 'Tepat berdampingan dengan C50, menjadikannya pilihan sempurna untuk dipesan bersamaan jika Anda membawa rombongan keluarga besar.',
+                amenities: ['3 Kamar Tidur Klasik', 'Sangat Nyaman untuk 8 Tamu', 'Ruang Kumpul Tengah Luas', 'Ruang Makan Interaktif', 'Peralatan Dapur Tradisional-Modern', 'Internet & Smart TV', 'Taman Tropis Kecil'],
                 images: [
                     'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                    'https://images.unsplash.com/photo-1502672260266-1c1c65d6c820?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Living 3
-                    'https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Bed 3
-                    'https://images.unsplash.com/photo-1533759413974-9e15f3b745ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Dining
+                    'https://images.unsplash.com/photo-1502672260266-1c1c65d6c820?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                 ]
             }
         };
@@ -1210,41 +1205,30 @@
         const modal = document.getElementById('villa-modal');
         let currentVillaSelect = '';
 
-        // Currency Formatting Utility
-        function formatIDR(amount) {
-            return 'Rp ' + amount.toLocaleString('id-ID');
-        }
-
         function openModal(villaId) {
             const data = villaData[villaId];
             currentVillaSelect = data.name;
 
-            // Populate Text
             document.getElementById('modal-title').innerText = data.name;
             document.getElementById('modal-desc').innerText = data.desc;
             
-            // Set Location text based on language
             const locText = currentLang === 'id' ? 'Kota Batu, Jawa Timur' : 'Batu City, East Java';
             document.getElementById('modal-location').innerHTML = `<i class="fas fa-map-marker-alt text-luxury-gold"></i> ${locText}`;
             
-            // Populate Amenities
             const amList = document.getElementById('modal-amenities');
             amList.innerHTML = '';
             data.amenities.forEach(item => {
                 amList.innerHTML += `<li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-[10px] text-luxury-gold"></i> <span>${item}</span></li>`;
             });
 
-            // Populate 3 Photo Grid
             document.getElementById('qv-img-1').src = data.images[0] || '';
             document.getElementById('qv-img-2').src = data.images[1] || '';
             document.getElementById('qv-img-3').src = data.images[2] || '';
 
-            // Set Pricing (Starting from weekday price)
             const price = pricingDb[data.name].weekday;
             document.getElementById('modal-price').innerText = formatIDR(price);
 
-            // Show Modal
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
             modal.classList.remove('closed');
             modal.classList.add('open');
         }
@@ -1255,32 +1239,18 @@
             modal.classList.add('closed');
         }
 
-        function changeModalImage(element, src) {
-            document.getElementById('modal-main-img').src = src;
-            // Update active state on thumbnails
-            document.querySelectorAll('.thumbnail-img').forEach(thumb => {
-                thumb.classList.remove('opacity-100', 'border-luxury-gold');
-                thumb.classList.add('opacity-60', 'border-transparent');
-            });
-            element.classList.remove('opacity-60', 'border-transparent');
-            element.classList.add('opacity-100', 'border-luxury-gold');
-        }
-
         function prefillBookingFromModal() {
             closeModal();
             const select = document.getElementById('villa-select');
             select.value = currentVillaSelect;
-            calculateNights(); // recalculate price estimator on selection
+            calculateNights();
             
-            // Delay scrolling slightly to ensure modal closing animation completes smoothly
             setTimeout(() => {
                 document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
             }, 300);
         }
 
-        // --- Quick Select from Rates Grid (Removed, logic handled by prefillBookingFromModal now) ---
-
-        // --- Booking & Pricing Estimator Logic ---
+        // --- STREAMING_CHUNK: Managing live pricing estimators and calendar offsets ---
         const checkInInput = document.getElementById('check-in');
         const checkOutInput = document.getElementById('check-out');
         const villaSelect = document.getElementById('villa-select');
@@ -1292,11 +1262,9 @@
         let estimatedTotal = 0;
         let totalBaseCost = 0;
 
-        // Set min date for Check-in to today
-        const today = new Date().toISOString().split('T')[0];
-        checkInInput.setAttribute('min', today);
+        const todayMin = new Date().toISOString().split('T')[0];
+        checkInInput.setAttribute('min', todayMin);
 
-        // Listeners
         villaSelect.addEventListener('change', calculateNights);
         checkInInput.addEventListener('change', function() {
             if (this.value) {
@@ -1318,7 +1286,9 @@
 
         checkOutInput.addEventListener('change', calculateNights);
 
-        // Currency Formatting Utility (Already defined above)
+        function formatIDR(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
 
         function calculateNights() {
             const villaName = villaSelect.value;
@@ -1331,27 +1301,22 @@
                 const diffTime = Math.abs(end - start);
                 totalNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
                 
-                // Show Estimator Panel with elegant fade-in
                 estimatorPanel.classList.remove('hidden');
 
-                // Advanced Pricing Algorithm: Distinguish weekdays (Sun-Thu nights) vs weekends (Fri-Sat nights)
                 totalBaseCost = 0;
                 let currentDate = new Date(start);
                 const rates = pricingDb[villaName];
 
                 for (let i = 0; i < totalNights; i++) {
-                    const dayOfWeek = currentDate.getDay(); // 0 = Sun, 5 = Fri, 6 = Sat
-                    // Generally, Friday and Saturday nights fall under weekend pricing
+                    const dayOfWeek = currentDate.getDay(); 
                     if (dayOfWeek === 5 || dayOfWeek === 6) {
                         totalBaseCost += rates.weekend;
                     } else {
                         totalBaseCost += rates.weekday;
                     }
-                    // Move to next night
                     currentDate.setDate(currentDate.getDate() + 1);
                 }
 
-                // Promo logic (Stay >= 3 nights yields 10% discount)
                 const discountRow = document.getElementById('est-discount-row');
                 if (totalNights >= 3) {
                     promoMessage.classList.remove('hidden');
@@ -1372,7 +1337,6 @@
                     discountRow.classList.add('hidden');
                 }
 
-                // Update UI Breakdown
                 const labelNights = currentLang === 'id' ? 'Malam' : 'Nights';
                 document.getElementById('est-nights-val').innerText = `${totalNights} ${labelNights}`;
                 document.getElementById('est-base-val').innerText = formatIDR(totalBaseCost);
@@ -1388,6 +1352,7 @@
             }
         }
 
+        // --- STREAMING_CHUNK: Processing reservation details and WhatsApp submission ---
         function submitBooking() {
             const villa = villaSelect.value;
             const checkIn = checkInInput.value;
@@ -1399,11 +1364,10 @@
                 const alertMsg = currentLang === 'id' 
                     ? "Mohon lengkapi pilihan Unit Villa dan tanggal reservasi Anda terlebih dahulu."
                     : "Please complete your Unit Villa selection and booking dates first.";
-                alert(alertMsg);
+                showToast(alertMsg);
                 return;
             }
 
-            // Format Dates for readability
             const formatOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
             const dateInFmt = new Date(checkIn).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', formatOptions);
             const dateOutFmt = new Date(checkOut).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', formatOptions);
@@ -1422,7 +1386,6 @@
             message += `*Jumlah Tamu / Guests:* ${guests}\n`;
             message += `*Total Malam / Nights:* ${totalNights} Malam\n\n`;
             
-            // Structured Breakdown of Estimated Costs
             if (currentLang === 'id') {
                 message += `*Rincian Estimasi Biaya (Mata Uang: IDR):*\n`;
                 message += `• Base Rate: ${formatIDR(rates.weekday)} / malam\n`;
@@ -1454,7 +1417,6 @@
             window.open(`https://wa.me/${waNumber}?text=${encodedMessage}`, '_blank');
         }
 
-        // Set default language to Indonesian (ID) upon initial page load
         window.onload = function() {
             setLanguage('id');
         }
